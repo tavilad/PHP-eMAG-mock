@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserPaymentMethod{% endblock %}
+
+{% block body %}
+    <h1>UserPaymentMethod</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_payment_method.id }}</td>
+            </tr>
+            <tr>
+                <th>Credit_card_number</th>
+                <td>{{ user_payment_method.creditCardNumber }}</td>
+            </tr>
+            <tr>
+                <th>Credit_card_expiration_date</th>
+                <td>{{ user_payment_method.creditCardExpirationDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_payment_method_index') }}">back to list</a>
+
+    <a href="{{ path('user_payment_method_edit', {'id': user_payment_method.id}) }}">edit</a>
+
+    {{ include('user_payment_method/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserContactInfo{% endblock %}
+
+{% block body %}
+    <h1>UserContactInfo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_contact_info.id }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ user_contact_info.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ user_contact_info.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_contact_info_index') }}">back to list</a>
+
+    <a href="{{ path('user_contact_info_edit', {'id': user_contact_info.id}) }}">edit</a>
+
+    {{ include('user_contact_info/_delete_form.html.twig') }}
+{% endblock %}

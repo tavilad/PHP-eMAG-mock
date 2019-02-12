@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserPaymentMethod index{% endblock %}
+
+{% block body %}
+    <h1>UserPaymentMethod index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Credit_card_number</th>
+                <th>Credit_card_expiration_date</th>
+                <th>User</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_payment_method in user_payment_methods %}
+            <tr>
+                <td>{{ user_payment_method.id }}</td>
+                <td>{{ user_payment_method.creditCardNumber }}</td>
+                <td>{{ user_payment_method.creditCardExpirationDate }}</td>
+                <td>{{ user_payment_method.getUserId().getName() }}</td>
+                <td>
+                    <a href="{{ path('user_payment_method_show', {'id': user_payment_method.id}) }}">show</a>
+                    <a href="{{ path('user_payment_method_edit', {'id': user_payment_method.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_payment_method_new') }}">Create new</a>
+{% endblock %}
