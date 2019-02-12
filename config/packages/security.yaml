@@ -1,7 +1,9 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        # internal name - can be anything
+        your_custom_user_provider:
+            entity: { class: App\Entity\User, property: username }
     encoders:
         # use your user class name here
         App\Entity\User:
